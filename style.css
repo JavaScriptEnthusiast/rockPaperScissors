@@ -15,8 +15,7 @@ body {
   background-color: blue;
   width: 100%;
 }
-
-.buttonrow {
+s .buttonrow {
   background-color: green;
   width: 100%;
   display: flex;
