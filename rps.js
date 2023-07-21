@@ -1,6 +1,7 @@
 let playerSelection
 let playerScore = 0
 let computerScore = 0
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "rock") {
     const outcome = `It's a tie D:`
@@ -40,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
 const compArray = ["rock", "paper", "scissors"]
 
 function computerPlay() {
-  return compArray[Math.floor(Math.random() * compArray.length)]
+  return `${compArray[Math.floor(Math.random() * compArray.length)]}`
 }
 //remember to readd commputerPlay
 const computerSelection = computerPlay()
@@ -58,6 +59,7 @@ let paperSelection = document.querySelector(".paperbutton")
 let scissorsSelection = document.querySelector(".scissorsbutton")
 rockSelection.addEventListener("click", function () {
   playerSide.innerHTML = "rock"
+  computerSide.innerHTML = computerPlay()
 })
 paperSelection.addEventListener("click", function () {
   playerSide.innerHTML = "paper"
