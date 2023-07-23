@@ -5,7 +5,6 @@ let playerScore = 0
 let outcome = ""
 let reset = document.querySelector(".resetButton")
 
-console.log(computerScore)
 reset.addEventListener("click", function () {
   computerScore = 0
   playerScore = 0
@@ -18,45 +17,50 @@ reset.addEventListener("click", function () {
 
 gameState = () => {
   computerSide.innerHTML = computerPlay()
-  console.log(computerPlay())
 }
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "rock") {
-    const outcome = `It's a tie D:`
+    const outcome = `It's a tied round D:`
     return outcome
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    const outcome = "Sorry but you lost D:"
-    computerScoreDiv.innerHTML = computerScore++
+    const outcome = "Sorry but you lost the round D:"
+    computerScore++
+    computerScoreDiv.innerHTML = computerScore
     return outcome
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    const outcome = "Congrats you won!"
-    playerScoreDiv.innerHTML = playerScore++
+    const outcome = "Congrats you won the round!"
+    playerScore++
+    playerScoreDiv.innerHTML = playerScore
     return outcome
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    const outcome = `Dang you lost D:`
-    computerScoreDiv.innerHTML = computerScore++
+    const outcome = `Dang you lost the round D:`
+    computerScore++
+    computerScoreDiv.innerHTML = computerScore
     return outcome
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    const outcome = `Congrats You Win!`
-    playerScoreDiv.innerHTML = playerScore++
+    const outcome = `Congrats you win the round!`
+    playerScore++
+    playerScoreDiv.innerHTML = playerScore
     return outcome
   } else if (
     playerSelection === "scissors" &&
     computerSelection === "scissors"
   ) {
-    const outcome = `it's a tie D:`
+    const outcome = `it's a tied round D:`
     return outcome
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    const outcome = `Dang you lost  D:`
-    computerScoreDiv.innerHTML = computerScore++
+    const outcome = `Dang you lost the round  D:`
+    computerScore++
+    computerScoreDiv.innerHTML = computerScore
     return outcome
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    const outcome = `Congrats you won!`
-    playerScoreDiv.innerHTML = playerScore++
+    const outcome = `Congrats you won the round!`
+    playerScore++
+    playerScoreDiv.innerHTML = playerScore
     return outcome
   } else if (playerSelection === "paper" && computerSelection === "paper") {
-    const outcome = `it's a tie  D:`
+    const outcome = `it's a tied round  D:`
     return outcome
   }
 }
@@ -85,7 +89,12 @@ rockSelection.addEventListener("click", function () {
   computerPlay()
   resultDiv.innerHTML = playRound(computerPlay(), playerSide.innerHTML)
   round++
-  if (playerScore > computerScore && round == 5) {
+  console.log(playerScore, computerScore)
+  if (round > 5) {
+    roundFive.innerHTML = ""
+  } else if (playerScore == computerScore && round == 5) {
+    roundFive.innerHTML = "The game ended in a tie! Continue playing or reset."
+  } else if (playerScore > computerScore && round == 5) {
     roundFive.innerHTML = "You won the game! Continue playing or reset."
   } else if (playerScore < computerScore && round == 5) {
     roundFive.innerHTML =
@@ -111,7 +120,6 @@ scissorsSelection.addEventListener("click", function () {
   gameState()
   computerPlay()
   resultDiv.innerHTML = playRound(computerPlay(), playerSide.innerHTML)
-  console.log(round)
   round++
   if (playerScore > computerScore && round == 5) {
     roundFive.innerHTML = "You won the game! Continue playing or reset."
@@ -129,3 +137,9 @@ let resultDiv = document.querySelector(".resultsNormal")
 resultDiv.innerHTML = outcome
 
 let roundFive = document.querySelector(".resultsFive")
+while (
+  (playerScoreDiv.innerHTML == computerScoreDiv.innerHTML) &
+  (round == 5)
+) {
+  roundFive.innerHTML = "The game concluded in a tie. Continue playing or reset"
+}
