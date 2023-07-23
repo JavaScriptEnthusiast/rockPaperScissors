@@ -24,7 +24,6 @@ body {
   justify-content: space-between;
 }
 .buttonrow {
-  background-color: green;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -33,7 +32,6 @@ body {
 }
 
 .bottomrow {
-  background-color: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,11 +39,17 @@ body {
 
 img {
   height: 200px;
+  border-radius: 2px;
+  box-shadow: 100px;
+  box-shadow: 10px 5px 5px rgb(253, 236, 0);
 }
 
 .playerSide {
-  background-color: aliceblue;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
 .resultScreen {
   display: grid;
@@ -54,33 +58,58 @@ img {
 }
 
 .computerSide {
-  background-color: aquamarine;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
 
 .you {
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
 .comp {
-  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
 
 .playerScore {
-  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
 
 .computerScore {
-  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
 }
 
 .results {
-  background-color: brown;
   grid-column: 1/-1;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 30px;
+  flex-direction: column;
 }
 
 .resetButton {
-  height: 20px;
+  height: 40px;
+  width: 70px;
+  background: none;
+  font-family: "Sarcophagus", sans-serif;
+  font-size: 30px;
+  box-shadow: 5px 5px 5px rgb(253, 236, 0);
+}
+
+.resultsFive {
+  color: gold;
 }
