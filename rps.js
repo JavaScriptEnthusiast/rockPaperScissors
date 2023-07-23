@@ -3,6 +3,7 @@ let round = 0
 let computerScore = 0
 let playerScore = 0
 let outcome = ""
+
 let reset = document.querySelector(".resetButton")
 
 reset.addEventListener("click", function () {
@@ -13,6 +14,8 @@ reset.addEventListener("click", function () {
   resultDiv.innerHTML = ""
   roundFive.innerHTML = ""
   round = 0
+  playerSide.innerHTML = ""
+  computerSide.innerHTML = ""
 })
 
 gameState = () => {
@@ -107,7 +110,11 @@ paperSelection.addEventListener("click", function () {
   computerPlay()
   resultDiv.innerHTML = playRound(computerPlay(), playerSide.innerHTML)
   round++
-  if (playerScore > computerScore && round == 5) {
+  if (round > 5) {
+    roundFive.innerHTML = ""
+  } else if (playerScore == computerScore && round == 5) {
+    roundFive.innerHTML = "The game ended in a tie! Continue playing or reset."
+  } else if (playerScore > computerScore && round == 5) {
     roundFive.innerHTML = "You won the game! Continue playing or reset."
   } else if (playerScore < computerScore && round == 5) {
     roundFive.innerHTML =
@@ -121,7 +128,11 @@ scissorsSelection.addEventListener("click", function () {
   computerPlay()
   resultDiv.innerHTML = playRound(computerPlay(), playerSide.innerHTML)
   round++
-  if (playerScore > computerScore && round == 5) {
+  if (round > 5) {
+    roundFive.innerHTML = ""
+  } else if (playerScore == computerScore && round == 5) {
+    roundFive.innerHTML = "The game ended in a tie! Continue playing or reset."
+  } else if (playerScore > computerScore && round == 5) {
     roundFive.innerHTML = "You won the game! Continue playing or reset."
   } else if (playerScore < computerScore && round == 5) {
     roundFive.innerHTML =
